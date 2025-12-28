@@ -1,0 +1,80 @@
+From 30c733f7cc648efbf978949b6a0370b771173898 Mon Sep 17 00:00:00 2001
+From: CodeX1315 <deepakmahade777@gmail.com>
+Date: Sun, 28 Dec 2025 11:51:19 +0530
+Subject: [PATCH] Task 1 completed
+
+---
+ application.yml |  2 ++
+ pom.xml         | 48 ++++++++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 48 insertions(+), 2 deletions(-)
+
+diff --git a/application.yml b/application.yml
+index e69de29..dbde2b3 100644
+--- a/application.yml
++++ b/application.yml
+@@ -0,0 +1,2 @@
++general:
++  kafka-topic: trader-updates
+\ No newline at end of file
+diff --git a/pom.xml b/pom.xml
+index d1dedfe..e144fa2 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -16,8 +16,52 @@
+ 	<properties>
+ 		<java.version>17</java.version>
+ 	</properties>
+-	<dependencies>
+-	</dependencies>
++    <dependencies>
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-web</artifactId>
++        </dependency>
++
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-data-jpa</artifactId>
++        </dependency>
++
++        <dependency>
++            <groupId>com.h2database</groupId>
++            <artifactId>h2</artifactId>
++            <scope>runtime</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>org.springframework.kafka</groupId>
++            <artifactId>spring-kafka</artifactId>
++        </dependency>
++
++        <dependency>
++            <groupId>org.projectlombok</groupId>
++            <artifactId>lombok</artifactId>
++            <optional>true</optional>
++        </dependency>
++
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-test</artifactId>
++            <scope>test</scope>
++        </dependency>
++
++        <dependency>
++            <groupId>org.springframework.kafka</groupId>
++            <artifactId>spring-kafka-test</artifactId>
++            <scope>test</scope>
++        </dependency>
++        <dependency>
++            <groupId>org.testcontainers</groupId>
++            <artifactId>kafka</artifactId>
++            <version>1.19.1</version>
++            <scope>test</scope>
++        </dependency>
++    </dependencies>
+ 
+ 	<build>
+ 		<plugins>
+-- 
+2.45.2.windows.1
+

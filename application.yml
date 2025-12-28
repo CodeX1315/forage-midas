@@ -1,2 +1,17 @@
 general:
-  kafka-topic: trader-updates
+  kafka-topic: "your-topic-name-here" # This should already be there
+
+spring:
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # This is the line that fixes your SerializationException:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: "midas-core-group"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # This allows the Listener to turn JSON back into a Transaction object:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.jpmc.midascore.foundation"
